@@ -1,0 +1,25 @@
+package org.example.capstone1db.Model;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.*;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
+public class Merchant {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @NotBlank(message = "name must not be empty")
+    @Size(min = 4, message = "name must be more than 3 characters")
+    @Column(columnDefinition = "varchar(20) not null")
+    private String name;
+
+}
